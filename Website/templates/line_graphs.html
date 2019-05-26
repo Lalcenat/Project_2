@@ -1,15 +1,14 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
- <!--Links-->   
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
+    <title>Line Graphs</title>
 </head>
+<!--Links-->   
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 <body>
 <!--Bootstrap Navbar-->
 <ul class="nav">
@@ -29,10 +28,17 @@
         </li>
       </ul>
 
-<div id="title"><h1>Scatter Plot</h1></div>
-<div id="description">Here you can find information about blah, blah, and blah hover over the markers to explore.</div>
+  <div id="title"><h1>Line Graphs</h1></div>
+  <div id="description">Here you can find information about blah, blah, and blah hover over the markers to explore.</div>
+  
+    <div id="plot"></div>
 
-<!--Scatter Plot placeholder-->   
-    <div id="scatter_plot"></div>
+    <script src="plots.js"></script>
+  
+    <select id="selDataset" onchange="getData(this.value)">
+      <option value="dataset1">DataSet1</option>
+      <option value="dataset2">DataSet2</option>
+      <option value="dataset3">DataSet3</option>
+    </select>
+
 </body>
-</html>
