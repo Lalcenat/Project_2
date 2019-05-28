@@ -20,6 +20,32 @@ def index():
 
 #This will be our welcome page
 
+
+@app.route("/line_data_route")
+def line_data_function ():
+    line_data = [{
+        "x": [1,2,3,4],
+        "y": [2,4,6,8]}]
+
+    return jsonify(line_data)
+
+@app.route("/scatter_data_route")
+def line_data_function ():
+    scatter_data = [{
+        "x": [1,2,3,4],
+        "y": [2,4,6,8]}]
+
+    return jsonify(scatter_data)
+
+@app.route("/map_data_route")
+def line_data_function ():
+    map_data = [{
+        "x": [1,2,3,4],
+        "y": [2,4,6,8]}]
+
+    return jsonify(map_data)
+
+
 @app.route("/world_map")
 def worldmap():
     return render_template("world_map.html")
@@ -37,4 +63,4 @@ def scatter_plot():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

@@ -55,3 +55,4 @@ CREATE TABLE life_expectancy (
   lfe_2016 DOUBLE
 );
 
+Select * from life_expectancy;

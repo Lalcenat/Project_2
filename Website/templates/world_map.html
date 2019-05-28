@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
 <head>
         <meta charset="utf-8">
         <title>Basic Map</title>
@@ -10,6 +14,7 @@
         <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
         integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
         crossorigin=""></script>
+        <script src = "https://cdn.plot.ly/plotly-latest.min.js"></script>
       
         <!-- Our CSS -->
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -28,15 +33,13 @@
         <li class="nav-item">
             <a class="nav-link" href="summary.html">Summary</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="https://github.com/CaroMuizzi/GDP/blob/master/project2.ipynb">Jupyter Notebook Code</a>
-        </li>
+
       </ul>
       <body>
         <div id="title"><h1>GDP Map</h1></div>
-        <div id="description">Here you can find information about blah, blah, and blah hover over the markers to explore.</div>
+        <div id="description">On the world map below, a country can be clicked and its GDP and Life Expectancy will be shown.</div>
         <!-- The div where we will inject our map -->
-        <div id="map"></div>
+        <div id="world_map"></div>
       
         <!-- API key -->
         <script type="text/javascript" src="config.js"></script>

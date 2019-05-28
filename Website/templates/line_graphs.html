@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Line Graphs</title>
+    <script src = "https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <!--Links-->   
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 
 <body>
 <!--Bootstrap Navbar-->
@@ -22,16 +24,23 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="summary.html">Summary</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="https://github.com/CaroMuizzi/GDP/blob/master/project2.ipynb">Jupyter Notebook Code</a>
-        </li>
+
       </ul>
 
-  <div id="title"><h1>Line Graphs</h1></div>
-  <div id="description">Here you can find information about blah, blah, and blah hover over the markers to explore.</div>
+  <div id="tile"><h1>Line Graphs</h1></div>
+  <div id="description"> 
+      <p>These line graphs plot Life Expectancy versus GDP per Capital in various regions over time.  hover over the markers to explore.</p>
+    </div>
   
-    <div id="plot"></div>
+    <div id="line_graph"></div>
+
+    <script>
+        d3.json("/line_data").then(function(data) {
+            var layout = {title: "Life Expectancy vs GDP"};
+            var line_graph = document.getElementById('line_graph');
+            Plotly.newPlot(line_graph,data,layout);
+        })
+    </script>
 
     <script src="plots.js"></script>
   
