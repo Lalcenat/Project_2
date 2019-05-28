@@ -9,10 +9,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db/db.sqlite"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sql:///db/db.data_base.sql"
 
 db = SQLAlchemy(app)
 
+from .models import Pet
 
 @app.route("/")
 def index():
