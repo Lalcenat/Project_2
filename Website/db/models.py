@@ -1,7 +1,7 @@
 from .app import db
 
 
-class Pet(db.Model):
+class Website(db.Model):
     __tablename__ = 'pets'
 
     id = db.Column(db.Integer, primary_key=True)
