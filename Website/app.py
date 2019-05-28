@@ -5,15 +5,34 @@ from flask import (
     jsonify,
     request)
 
+import pandas as pd
+
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "sql:///db/db.data_base.sql"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sql:///db/db.project_db.sql"
 
 db = SQLAlchemy(app)
 
-from .models import Pet
+class gdpplot(db.model):
+    __tablename__="gdpplot"
+
+    year = db.Column(db.text)
+    eugdp = db.Column(db.float)
+    eapgdp = db.Column(db.float)
+    lacgdp = db.Column(db.float)
+    nagdp = db.Columnn(db.float)
+    megdp = db.Columnn(db.float)
+    ssagdp = db.Column(db.float)
+ 
+
+    def __repr__('self'):
+        return '<gdpplot%r>' % (self.name)
+
+
+
+
 
 @app.route("/")
 def index():
@@ -22,21 +41,59 @@ def index():
 #This will be our welcome page
 
 
-@app.route("/line_data_route")
+@app.route("/line_data_route1")
 def line_data_function ():
-    line_data = [{
-        "x": [1,2,3,4],
-        "y": [2,4,6,8]}]
+    results = db.session.query(year, )
 
-    return jsonify(line_data)
+
+
+
+
+#ONE FOR EACH LINE
+#If each one is in a row, then we can to create a list of years and values
+#Are years in the SQL?
+
+trace = {
+        "x": year,
+        "y": gdp,
+        "type": line
+    }
+    return jsonify(trace)
+
+
+
+
+ @app.route("/line_data_route2")
+def line_data_function ():
+    line_data = db.session.query(*)
+    
+trace = {
+        "x": year,
+        "y": gdp,
+        "type": "line"
+    }
+    return jsonify(trace)   
+
+ @app.route("/line_data_route3")
+def line_data_function ():
+    line_data = db.session.query(*)
+    
+trace = {
+        "x": year,
+        "y": gdp,
+        "type": "line"
+    }
+    return jsonify(trace)   
+
 
 @app.route("/scatter_data_route")
 def line_data_function ():
     scatter_data = [{
-        "x": [1,2,3,4],
-        "y": [2,4,6,8]}]
+        "x": GDP,
+        "y": life_expectancy
+        "type": "scatter"
 
-    return jsonify(scatter_data)
+    return jsonify(trace)
 
 @app.route("/map_data_route")
 def line_data_function ():
