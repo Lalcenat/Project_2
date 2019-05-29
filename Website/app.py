@@ -15,7 +15,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sql:///db/db.project_db.sql"
 
 db = SQLAlchemy(app)
 
-class gdpplot(db.model):
+class gdpplot(db.Model):
     __tablename__="gdpplot"
 
     year = db.Column(db.text)
@@ -27,8 +27,8 @@ class gdpplot(db.model):
     ssagdp = db.Column(db.float)
  
 
-    def __repr__('self'):
-        return '<gdpplot%r>' % (self.name)
+    def __repr__(self):
+       return '<gdpplot%r>' % (self.name)
 
 
 
@@ -43,17 +43,14 @@ def index():
 
 @app.route("/line_data_route1")
 def line_data_function ():
-    results = db.session.query(year, )
-
-
-
+    results = db.session.query(gdpplot.year,gdpplot.eugdp)
 
 
 #ONE FOR EACH LINE
 #If each one is in a row, then we can to create a list of years and values
 #Are years in the SQL?
 
-trace = {
+    trace = {
         "x": year,
         "y": gdp,
         "type": line
@@ -63,22 +60,22 @@ trace = {
 
 
 
- @app.route("/line_data_route2")
+@app.route("/line_data_route2")
 def line_data_function ():
-    line_data = db.session.query(*)
+    line_data = db.session.query(gdpplot.year, gdpplot.eapgdp)
     
-trace = {
+    trace = {
         "x": year,
         "y": gdp,
         "type": "line"
     }
     return jsonify(trace)   
 
- @app.route("/line_data_route3")
+@app.route("/line_data_route3")
 def line_data_function ():
-    line_data = db.session.query(*)
+    line_data = db.session.query(gdpplot.year, gdpplot.lacgdp)
     
-trace = {
+    trace = {
         "x": year,
         "y": gdp,
         "type": "line"
@@ -86,14 +83,16 @@ trace = {
     return jsonify(trace)   
 
 
-@app.route("/scatter_data_route")
-def line_data_function ():
-    scatter_data = [{
-        "x": GDP,
-        "y": life_expectancy
-        "type": "scatter"
+#@app.route("/scatter_data_route")
+#def scatter_data_function ():
 
-    return jsonify(trace)
+    #scatter_data = db.session.query()
+    #scatter_data = [{
+   #     "x": GDP,
+   #     "y": life_expectancy
+   #     "type": "scatter"}
+
+#return jsonify(trace)
 
 @app.route("/map_data_route")
 def line_data_function ():
