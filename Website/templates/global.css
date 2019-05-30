@@ -1,0 +1,56 @@
+.container,
+.container-fluid, .description {
+background:	#0E6D9D;
+color: white;
+
+}
+
+h3,h1 {
+    font-family: 'Anton', sans-serif;
+}
+
+.bgimage {
+    background-image: url("assets/images/map\ backgroup\ edit\ \(filter\).png");
+    background-attachment: fixed;
+    background-size: cover;
+}    
+
+.layer {
+    background-color: white;
+    opacity: 0.5;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.nav,.nav-item,.nav-link {
+    background-color:#0E6D9D;
+    color: white;
+    width: auto;
+    font-weight: bold;
+    font-family: 'Anton', sans-serif;
+}
+
+
+.charts {
+    width: 100%;
+    height: auto;
+}
+
+#data-callout {
+    font-family: 'Anton', sans-serif;
+    background-color:#083c57;
+    text-align: center;
+    color: white
+}
+
+.title {
+    font-family: 'Anton', sans-serif;
+    background-color:#083c57;
+    color: white
+}
+
+#home-body, #summary {
+    text-align: center;
+    margin-top:20%;
+}
+
